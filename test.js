@@ -19,3 +19,7 @@ test('check to see if hours exists', function(assert){
 test('check to see if h1 variable exists', function(assert){
   assert.ok(typeof h1 === 'object', 'h1 object that represents the DOM element exists')
 });
+
+test('checks to see if timer function exists', function(assert){
+  assert.ok(typeof add === 'function', 'add function exists')
+});
