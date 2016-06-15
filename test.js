@@ -31,3 +31,7 @@ test('checks to see if add makes seconds increase', function(assert){
     assert.ok(seconds > 0,'seconds increase when add is called')
   }, 1)
 });
+
+test('check to see if start button exists', function(assert){
+  assert.ok(document.getElementById('startButton'), 'start button object that represents the DOM element exists')
+});
