@@ -15,3 +15,7 @@ test('check to see if minutes exists', function(assert){
 test('check to see if hours exists', function(assert){
   assert.ok(typeof hours === 'number', 'hours exists as a number')
 });
+
+test('check to see if h1 variable exists', function(assert){
+  assert.ok(typeof h1 === 'object', 'h1 object that represents the DOM element exists')
+});
