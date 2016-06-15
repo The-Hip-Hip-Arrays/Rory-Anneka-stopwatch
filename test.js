@@ -23,3 +23,11 @@ test('check to see if h1 variable exists', function(assert){
 test('checks to see if timer function exists', function(assert){
   assert.ok(typeof add === 'function', 'add function exists')
 });
+
+test('checks to see if add makes seconds increase', function(assert){
+  add();
+  expect(0);
+  setTimeout(function() {
+    assert.ok(seconds > 0,'seconds increase when add is called')
+  }, 1)
+});
