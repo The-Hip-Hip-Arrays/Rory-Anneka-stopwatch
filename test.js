@@ -11,3 +11,7 @@ test('check to see if seconds exists', function(assert){
 test('check to see if minutes exists', function(assert){
   assert.ok(typeof minutes === 'number', 'minutes exists as a number')
 });
+
+test('check to see if hours exists', function(assert){
+  assert.ok(typeof hours === 'number', 'hours exists as a number')
+});

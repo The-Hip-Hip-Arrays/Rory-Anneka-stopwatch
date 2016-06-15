@@ -1,2 +1,1 @@
-var seconds = 0;
-var minutes = 0;
+var seconds = 0, minutes = 0, hours = 0;
