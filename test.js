@@ -24,6 +24,10 @@ test('checks to see if timer function exists', function(assert){
   assert.ok(typeof add === 'function', 'add function exists')
 });
 
+test('checks to see that h1.textContent element exists for clock and displays correctly', function(assert){
+  assert.equal(h1.textContent, "00:00:00", 'h1 with tag clock exists and displays "00:00:00"')
+});
+
 test('checks to see if add makes seconds increase and that 10 seconds pass', function(assert){
   add();
   expect(0);
@@ -45,8 +49,9 @@ test('check to see if clear button exists', function(assert){
   assert.ok(document.getElementById('clearButton'), 'clear button object that represents the DOM element exists')
 });
 
+startClock();
 test('checks to see if add makes seconds increase by more than 2 seconds', function(assert){
-  startClock();
+
   expect(0);
   setTimeout(function() {
     assert.ok(seconds > 2,'seconds increase by more than 2 startClock is called')
@@ -55,7 +60,7 @@ test('checks to see if add makes seconds increase by more than 2 seconds', funct
 });
 
 test('checks to see if stopClock stops the clock', function(assert){
-  startClock();
+
   expect(0);
   setTimeout(function() {
     stopClock();
@@ -68,7 +73,7 @@ test('checks to see if stopClock stops the clock', function(assert){
 });
 
 test('checks to see if stopClock stops the clock', function(assert){
-  startClock();
+
   expect(0);
   setTimeout(function() {
     stopClock();
@@ -86,6 +91,10 @@ test('checks to see if stopClock stops the clock', function(assert){
   }, 5000)
 });
 
-test('checks to see that h1 element exists for clock and displays correctly', function(assert){
-  assert.equal(clockTime, "00:00:00", 'h1 with tag clock exists and displays "00:00:00"')
+test('when 60 seconds passes, minutes changes to 1', function(assert){
+
+  expect(0);
+  setTimeout(function() {
+    assert.equal(h1.textContent[4], "1", 'minutes should change to 1 in the string after 60 seconds')
+  }, 62000)
 });
