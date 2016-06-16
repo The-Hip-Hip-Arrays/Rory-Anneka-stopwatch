@@ -1,7 +1,7 @@
 var seconds = 0, minutes = 0, hours = 0;
 
 var h1 = document.getElementsByTagName('h1')[0];
-
+var clockTime = document.getElementById('clock').textContent;
 var start = document.getElementById('startButton');
 var stop = document.getElementById('stopButton');
 var clear = document.getElementById('clearButton');
