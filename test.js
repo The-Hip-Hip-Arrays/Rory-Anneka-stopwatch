@@ -49,7 +49,39 @@ test('checks to see if add makes seconds increase by more than 5 seconds', funct
   startClock();
   expect(0);
   setTimeout(function() {
-    assert.ok(seconds > 5,'seconds increase by more than 5 add is called')
+    assert.ok(seconds > 5,'seconds increase by more than 5 startClock is called')
     assert.ok(seconds <= 10, 'seconds under 10')
   }, 8000)
+});
+
+test('checks to see if stopClock stops the clock', function(assert){
+  startClock();
+  expect(0);
+  setTimeout(function() {
+    assert.ok(seconds > 5,'seconds increase by more than 5 startClock is called')
+    assert.ok(seconds <= 10, 'seconds under 10')
+  }, 8000)
+  stopClock();
+  setTimeout(function() {
+    assert.ok(seconds <= 10, 'seconds under 10 when stopClock is called')
+  }, 5000)
+});
+
+test('checks to see if stopClock stops the clock', function(assert){
+  startClock();
+  expect(0);
+  setTimeout(function() {
+    stopClock();
+    assert.ok(seconds > 1,'seconds increase by more than 1 startClock is called')
+    assert.ok(seconds <= 2, 'seconds under 3')
+  }, 2000)
+
+  setTimeout(function() {
+    assert.ok(seconds <= 3, 'seconds under 10 when stopClock is called')
+  }, 4000)
+
+  setTimeout(function() {
+    clearClock();
+    assert.ok(seconds === 0, 'seconds is cleared back to zero when clearClock is called')
+  }, 5000)
 });
