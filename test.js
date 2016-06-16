@@ -51,7 +51,6 @@ test('check to see if clear button exists', function(assert){
 
 startClock();
 test('checks to see if add makes seconds increase by more than 2 seconds', function(assert){
-
   expect(0);
   setTimeout(function() {
     assert.ok(seconds > 2,'seconds increase by more than 2 startClock is called')
@@ -60,7 +59,6 @@ test('checks to see if add makes seconds increase by more than 2 seconds', funct
 });
 
 test('checks to see if stopClock stops the clock', function(assert){
-
   expect(0);
   setTimeout(function() {
     stopClock();
@@ -73,7 +71,6 @@ test('checks to see if stopClock stops the clock', function(assert){
 });
 
 test('checks to see if stopClock stops the clock', function(assert){
-
   expect(0);
   setTimeout(function() {
     stopClock();
@@ -92,9 +89,19 @@ test('checks to see if stopClock stops the clock', function(assert){
 });
 
 test('when 60 seconds passes, minutes changes to 1', function(assert){
-
   expect(0);
   setTimeout(function() {
     assert.equal(h1.textContent[4], "1", 'minutes should change to 1 in the string after 60 seconds')
   }, 62000)
+});
+
+test('when start is already clicked, start should not be able to be clicked again', function(assert) {
+  clearClock();
+  startClock();
+  startClock();
+  startClock();
+  expect(0);
+  setTimeout(function() {
+    assert.ok(seconds < 10, 'seconds should continue to increment by 1')
+  }, 8000)
 });

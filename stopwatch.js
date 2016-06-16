@@ -5,6 +5,7 @@ var start = document.getElementById('startButton');
 var stop = document.getElementById('stopButton');
 var clear = document.getElementById('clearButton');
 var time;
+var clockStarted = false;
 
 function add(){
   seconds++;
@@ -20,13 +21,17 @@ function add(){
 }
 
 function startClock() {
+  if(clockStarted === false) {
     time = setInterval(function(){
       add();
     }, 1000);
+    clockStarted = true;
+  }
 }
 
 function stopClock() {
   clearInterval(time);
+  clockStarted = false;
 }
 
 function clearClock() {
