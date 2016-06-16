@@ -37,6 +37,19 @@ test('check to see if start button exists', function(assert){
   assert.ok(document.getElementById('startButton'), 'start button object that represents the DOM element exists')
 });
 
-test('check to see if sstop button exists', function(assert){
+test('check to see if stop button exists', function(assert){
   assert.ok(document.getElementById('stopButton'), 'stop button object that represents the DOM element exists')
+});
+
+test('check to see if clear button exists', function(assert){
+  assert.ok(document.getElementById('clearButton'), 'clear button object that represents the DOM element exists')
+});
+
+test('checks to see if add makes seconds increase by more than 5 seconds', function(assert){
+  startClock();
+  expect(0);
+  setTimeout(function() {
+    assert.ok(seconds > 5,'seconds increase by more than 5 add is called')
+    assert.ok(seconds <= 10, 'seconds under 10')
+  }, 8000)
 });
