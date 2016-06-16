@@ -24,14 +24,19 @@ test('checks to see if timer function exists', function(assert){
   assert.ok(typeof add === 'function', 'add function exists')
 });
 
-test('checks to see if add makes seconds increase', function(assert){
+test('checks to see if add makes seconds increase and that 10 seconds pass', function(assert){
   add();
   expect(0);
   setTimeout(function() {
     assert.ok(seconds > 0,'seconds increase when add is called')
-  }, 1)
+    assert.ok(seconds <= 10, 'seconds under 10')
+  }, 10)
 });
 
 test('check to see if start button exists', function(assert){
   assert.ok(document.getElementById('startButton'), 'start button object that represents the DOM element exists')
+});
+
+test('check to see if sstop button exists', function(assert){
+  assert.ok(document.getElementById('stopButton'), 'stop button object that represents the DOM element exists')
 });
