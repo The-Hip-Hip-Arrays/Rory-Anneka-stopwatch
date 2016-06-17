@@ -4,6 +4,11 @@ test('testing environment', function(assert) {
   assert.equal(actual, expected, 'should pass test')
 });
 
+test('checks to see that h1.textContent element exists for clock and displays correctly', function(assert){
+  assert.equal(h1.textContent, "00:00:00", 'h1 with tag clock exists and displays "00:00:00"')
+});
+
+
 test('check to see if seconds exists', function(assert){
   assert.ok(typeof seconds === 'number', 'seconds exists as a number')
 });
@@ -24,17 +29,14 @@ test('checks to see if timer function exists', function(assert){
   assert.ok(typeof add === 'function', 'add function exists')
 });
 
-test('checks to see that h1.textContent element exists for clock and displays correctly', function(assert){
-  assert.equal(h1.textContent, "00:00:00", 'h1 with tag clock exists and displays "00:00:00"')
-});
-
-test('checks to see if add makes seconds increase and that 10 seconds pass', function(assert){
+test('checks to see if add makes seconds increase and that 4 seconds pass', function(assert){
+  var done = assert.async();
   add();
-  expect(0);
   setTimeout(function() {
     assert.ok(seconds > 0,'seconds increase when add is called')
     assert.ok(seconds <= 10, 'seconds under 10')
-  }, 10)
+    done();
+  }, 4000)
 });
 
 test('check to see if start button exists', function(assert){
@@ -50,36 +52,27 @@ test('check to see if clear button exists', function(assert){
 });
 
 startClock();
+//clock should be zero
 test('checks to see if add makes seconds increase by more than 2 seconds', function(assert){
-  expect(0);
+  var done = assert.async();
+  add();
   setTimeout(function() {
     assert.ok(seconds > 2,'seconds increase by more than 2 startClock is called')
-    assert.ok(seconds <= 5, 'seconds under 5')
-  }, 2000)
+    assert.ok(seconds <= 10, 'seconds under 10')
+    done();
+  }, 3000)
 });
 
 test('checks to see if stopClock stops the clock', function(assert){
-  expect(0);
+  var done = assert.async();
+  setTimeout(function() {
+    assert.ok(seconds > 1,'seconds increase by more than 1 startClock is called')
+    done();
+  }, 2000)
+
   setTimeout(function() {
     stopClock();
-    assert.ok(seconds > 1,'seconds increase by more than 1 startClock is called')
-    assert.ok(seconds <= 3, 'seconds under 3')
-  }, 2000)
-  setTimeout(function() {
     assert.ok(seconds <= 10, 'seconds under 10 when stopClock is called')
-  }, 4000)
-});
-
-test('checks to see if stopClock stops the clock', function(assert){
-  expect(0);
-  setTimeout(function() {
-    stopClock();
-    assert.ok(seconds > 1,'seconds increase by more than 1 startClock is called')
-    assert.ok(seconds <= 3, 'seconds under 3')
-  }, 2000)
-
-  setTimeout(function() {
-    assert.ok(seconds <= 3, 'seconds under 10 when stopClock is called')
   }, 4000)
 
   setTimeout(function() {
@@ -89,10 +82,14 @@ test('checks to see if stopClock stops the clock', function(assert){
 });
 
 test('when 60 seconds passes, minutes changes to 1', function(assert){
-  expect(0);
+  var done = assert.async();
+  setTimeout(function() {
+    startClock();
+  }, 6000)
   setTimeout(function() {
     assert.equal(h1.textContent[4], "1", 'minutes should change to 1 in the string after 60 seconds')
-  }, 62000)
+    done();
+  }, 82000)
 });
 
 test('when start is already clicked, start should not be able to be clicked again', function(assert) {
@@ -100,8 +97,9 @@ test('when start is already clicked, start should not be able to be clicked agai
   startClock();
   startClock();
   startClock();
-  expect(0);
+  var done = assert.async();
   setTimeout(function() {
     assert.ok(seconds < 10, 'seconds should continue to increment by 1')
+    done();
   }, 8000)
 });
