@@ -1,4 +1,6 @@
-var seconds = 0, minutes = 0, hours = 0;
+var seconds = 0;
+var minutes = 0;
+var hours = 0;
 
 var h1 = document.getElementsByTagName('h1')[1];
 var start = document.getElementById('startButton');
@@ -6,6 +8,8 @@ var stop = document.getElementById('stopButton');
 var clear = document.getElementById('clearButton');
 var time;
 var clockStarted = false;
+
+console.log(h1)
 
 function add(){
   seconds++;
