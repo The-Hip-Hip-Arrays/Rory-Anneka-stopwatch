@@ -6,19 +6,25 @@
     <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.18.0.css">
     <!-- Pure CSS is a minimalist CSS file we have included to make things look nicer -->
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="main.css">
     <title></title>
   </head>
   <body>
-    <h1>Stopwatch</h1>
-    <div id="clock"><h1>00:00:00</h1></div>
-    <button type="button" id="startButton">Start</button>
-    <button type="button" id="stopButton">Stop</button>
-    <button type="button" id="clearButton">Clear</button>
+    <div class="title">
+      <h1>Stopwatch</h1>
+    </div>
+    <div class="clock" id="clock"><h1>00:00:00</h1></div>
+    <div class="buttons">
+      <button type="button" id="startButton">Start</button>
+      <button type="button" id="stopButton">Stop</button>
+      <button type="button" id="clearButton">Clear</button>
+    </div>
+
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
 
     <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
-    <script src = "stopwatch.js"></script>
+    <script src="stopwatch.js"></script>
     <script src="test.js"></script>
 
   </body>
